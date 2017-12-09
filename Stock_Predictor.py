@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
 
+
 # Import data
 data = pd.read_csv('data_stocks.csv')
 # Drop date column
@@ -46,7 +47,7 @@ scaler = MinMaxScaler()
 # It starts with: [x1 - min(x)]/[max(x) - min(x)]
 scaler.fit(data_train)
 data_train = scaler.transform(data_train)
-print(data_train)
+# I guess it transform it into scalar
 data_test = scaler.transform(data_test)
 # Build X and y
 X_train = data_train[:, 1:]
@@ -56,8 +57,10 @@ y_test = data_test[:, 0]
 
 
 # Define a and b as placeholders
-a = tf.placeholder(dtype=tf.int8)
-b = tf.placeholder(dtype=tf.int8)
+a = tf.placeholder(dtype=tf.int8) # Tensor("Placeholder:0", dtype=int8)
+
+b = tf.placeholder(dtype=tf.int8) # Tensor("Placeholder_1:0", dtype=int8)
+
 
 # Define the addition
 c = tf.add(a, b)
@@ -66,4 +69,12 @@ c = tf.add(a, b)
 graph = tf.Session()
 
 # Run the graph
-graph.run(c, feed_dict={a: 5, b: 4})
+d = graph.run(c, feed_dict={a: 5, b: 4}) # ok so adds two dicts to output c
+
+# Placeholder
+X = tf.placeholder(dtype=tf.float32, shape=[None, n_stocks]) # shape=[None, n_stocks] is a 2-dimensional matrix
+#output is a 1-dimensional vector
+# We use the None argument because we do not yet know the number of observations that will go through
+# the neural net graph in each batch, so we keep if flexible. We will later define the variable batch_size
+# that controls the number of observations per training batch
+Y = tf.placeholder(dtype=tf.float32, shape=[None])
