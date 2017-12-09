@@ -1,5 +1,5 @@
 # stock_price_prediction
-The goal is to have a deep learning model to predict stock prices using tensorflow an other libraries. Please find the dataset attached [here] (http://files.statworx.com/sp500.zip)The csv contains 41266 minutes of data from April to August 2017 on 500 stocks as well as the total S&P 500 index prices.
+The goal is to have a deep learning model to predict stock prices using tensorflow an other libraries. Please find the dataset attached [here](http://files.statworx.com/sp500.zip). The csv contains 41266 minutes of data from April to August 2017 on 500 stocks as well as the total S&P 500 index prices.
 
 **Just a small visualization done**
 ```
