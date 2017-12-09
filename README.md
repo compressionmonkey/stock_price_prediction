@@ -22,4 +22,5 @@ Using the above syntax will visualize the data
 - [x] Print final MSE after Training
 
 **Output:**
+
 ![Alt text](https://cdn-images-1.medium.com/max/1600/1*tnbyLo91bfJUexf7TnJamA.png)
